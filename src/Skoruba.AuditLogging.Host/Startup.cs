@@ -76,6 +76,15 @@ namespace Skoruba.AuditLogging.Host
                     });
 
             services.AddControllersWithViews();
+            services.AddSwaggerGen(options =>
+            {
+                options.SwaggerDoc("v2", new Microsoft.OpenApi.Models.OpenApiInfo
+                {
+                    Title = "Place Info Service API",
+                    Version = "v2",
+                    Description = "Sample service for Learner",
+                });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -99,6 +108,8 @@ namespace Skoruba.AuditLogging.Host
             {
                 endpoint.MapDefaultControllerRoute();
             });
+            app.UseSwagger();
+            app.UseSwaggerUI(options => options.SwaggerEndpoint("/swagger/v2/swagger.json", "PlaceInfo Services"));
         }
     }
 }

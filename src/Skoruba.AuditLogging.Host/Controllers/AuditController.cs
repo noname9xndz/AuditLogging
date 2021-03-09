@@ -10,7 +10,7 @@ using Skoruba.AuditLogging.Services;
 
 namespace Skoruba.AuditLogging.Host.Controllers
 {
-    [Authorize]
+    //[Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class AuditController : ControllerBase
